@@ -559,3 +559,66 @@ You can expand this project with:
 ## License
 
 You can use this freely in personal or portfolio projects.
+
+# 🌍 C++ Map Generator
+
+Procedural alien world generator using noise + climate simulation.
+
+## Features
+- Latitude-based climate (Earth-like)
+- Random terrain (NOT Earth)
+- Oceans, mountains, volcanoes
+- Biomes: desert, forest, tundra, jungle, ice
+
+## Compile
+
+```bash
+g++ map_generator.cpp -o map_generator
+```
+
+## Run
+
+```bash
+./map_generator
+```
+
+## Output
+
+- `map.txt` → ASCII world map
+
+## Legend
+
+| Symbol | Meaning |
+|------|--------|
+| ~ | Ocean |
+| ^ | Mountain |
+| V | Volcano |
+| D | Desert |
+| J | Jungle |
+| F | Forest |
+| T | Tundra |
+| I | Ice |
+| . | Grassland |
+| # | Mixed |
+
+## Notes
+- WIDTH/HEIGHT can be increased for higher resolution
+- Replace noise function with Perlin for better realism
+
+# 🌍 Python Map Generator
+
+Procedural alien world generator using noise + climate simulation.
+
+## Features
+- Earth-like climate zones
+- Fully random terrain
+- Oceans, mountains, volcanoes
+- Rich biome system
+
+## Requirements
+- Python 3.x
+
+## Run
+
+```bash
+python map_generator.py
