@@ -1,0 +1,27 @@
+# Brandon De Armas - Software Project Pack
+
+This pack includes 3 starter projects designed to strengthen your entry-level software resume.
+
+## Included projects
+1. Restaurant Operations Dashboard
+   - HTML, CSS, JavaScript
+   - Great for front-end and business metrics experience
+
+2. Python Task & Shift Manager
+   - Python CLI app
+   - Great for Python, file handling, and program structure
+
+3. Python Sales Analytics Reporter
+   - Python CSV reporting script
+   - Great for analytics and automation experience
+
+## Best way to use these
+- Put the code on GitHub
+- Add screenshots for the dashboard project
+- Practice explaining what problem each project solves
+- Add the provided bullets to your resume or LinkedIn
+
+## Suggested next upgrade
+- Add GitHub links to your resume
+- Deploy the dashboard with GitHub Pages
+- Add one full-stack project next
