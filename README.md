@@ -385,3 +385,177 @@ solitaire-rng-cpp
 ## License
 
 Free to use and modify.
+
+# Terrain Generator
+
+A C++-friendly procedural terrain generator for 3D environments using layered noise.
+
+This project generates a 2D heightmap that you can turn into:
+- a 3D mesh
+- a voxel terrain
+- a Unity or Unreal terrain input
+- an OpenGL / DirectX terrain surface
+
+## Features
+
+- Fractal Brownian Motion (fBm) terrain generation
+- Ridged noise for mountain ranges
+- Optional island falloff shaping
+- Configurable terrain size, scale, and strength
+- CSV export for easy import into other tools and engines
+- Single-file C++ source for simple GitHub upload
+
+## File Structure
+
+```text
+terrain_generator.cpp
+README.md
+```
+
+## How It Works
+
+The terrain height at each `(x, z)` position is built from three layers:
+
+1. **Continents**  
+   Low-frequency fBm creates the large landmass shapes.
+
+2. **Mountains**  
+   Ridged fractal noise adds sharper peaks and dramatic elevation changes.
+
+3. **Details**  
+   High-frequency fBm adds small surface variation.
+
+Final height formula:
+
+```text
+height =
+    baseHeight
+    + continents * continentStrength
+    + mountains * mountainStrength
+    + details * detailStrength
+```
+
+## Build
+
+Using `g++`:
+
+```bash
+g++ -std=c++17 -O2 -o terrain_generator terrain_generator.cpp
+```
+
+Using `clang++`:
+
+```bash
+clang++ -std=c++17 -O2 -o terrain_generator terrain_generator.cpp
+```
+
+## Run
+
+```bash
+./terrain_generator
+```
+
+On Windows:
+
+```bash
+terrain_generator.exe
+```
+
+## Output
+
+When you run the program it will:
+
+1. Generate a heightmap
+2. Print a terrain summary
+3. Save the results to:
+
+```text
+terrain_heightmap.csv
+```
+
+Each CSV value is the height at one `(x, z)` coordinate.
+
+## Example Integration
+
+To build a mesh from the heightmap, convert each grid point into a vertex:
+
+```cpp
+vertex = { x, heights[z][x], z };
+```
+
+Then create two triangles per cell:
+
+```text
+v0 = (x, z)
+v1 = (x + 1, z)
+v2 = (x, z + 1)
+v3 = (x + 1, z + 1)
+
+Triangle 1: v0, v2, v1
+Triangle 2: v1, v2, v3
+```
+
+## Customization
+
+Edit the `TerrainSettings` values in `main()`:
+
+```cpp
+settings.width = 256;
+settings.depth = 256;
+settings.baseHeight = 10.0f;
+settings.octaves = 6;
+settings.continentScale = 180.0f;
+settings.mountainScale = 90.0f;
+settings.detailScale = 24.0f;
+settings.continentStrength = 18.0f;
+settings.mountainStrength = 32.0f;
+settings.detailStrength = 4.0f;
+settings.useIslandFalloff = false;
+settings.seed = 2026;
+```
+
+### Useful Tweaks
+
+- Increase `continentScale` for broader land shapes
+- Decrease `mountainScale` for denser mountains
+- Increase `mountainStrength` for taller peaks
+- Increase `detailStrength` for rougher surface detail
+- Enable `useIslandFalloff` for island-style maps
+- Change `seed` to generate a different world
+
+## GitHub Upload Tips
+
+A clean repository layout:
+
+```text
+terrain-generator/
+├── terrain_generator.cpp
+└── README.md
+```
+
+Suggested repository name:
+
+```text
+terrain-generator
+```
+
+Suggested GitHub description:
+
+```text
+Procedural terrain generation in C++ using layered noise for 3D environments.
+```
+
+## Future Improvements
+
+You can expand this project with:
+- hydraulic erosion
+- thermal erosion
+- biome masks
+- texture splatting
+- OBJ mesh export
+- real-time terrain chunk generation
+- tree and rock placement
+
+## License
+
+You can use this freely in personal or portfolio projects.
