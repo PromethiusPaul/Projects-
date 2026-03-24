@@ -622,3 +622,34 @@ Procedural alien world generator using noise + climate simulation.
 
 ```bash
 python map_generator.py
+
+# 🧙 D&D NPC Generator (C++)
+
+A lightweight, high-quality Dungeons & Dragons NPC generator built in C++.
+
+This tool generates fully playable NPCs with:
+- Role-based stat distribution
+- Personality, goals, and flaws
+- Gendered names (first + last)
+- Boss / Elite / Standard scaling
+- Combat-ready stats
+
+---
+
+## 🎯 Features
+
+- ⚔️ Generates combat-ready NPCs
+- 🧠 Role-driven logic (Guard, Assassin, Priest, etc.)
+- 🎲 Randomized but coherent stat generation
+- 👤 Gender-based name system
+- 👑 Boss NPCs include titles and enhanced abilities
+- 🎭 Roleplay-ready output (personality, goals, flaws)
+
+---
+
+## ▶️ How to Run
+
+### 🪟 Windows (MinGW or g++)
+```bash
+g++ src/npc_generator.cpp -o npc_generator.exe
+npc_generator.exe
