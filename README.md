@@ -653,3 +653,122 @@ This tool generates fully playable NPCs with:
 ```bash
 g++ src/npc_generator.cpp -o npc_generator.exe
 npc_generator.exe
+
+🚀 Pro Dashboard (React + SCSS)
+
+A production-style admin dashboard built with React, Vite, and SCSS, designed to demonstrate scalable frontend architecture and modern UI patterns used in real SaaS applications.
+
+---
+
+🧠 Overview
+
+This project showcases:
+
+- Component-based UI design using React
+- Scalable styling architecture with SCSS
+- Dynamic theming (light/dark mode)
+- Data visualization with charts
+- Modular and maintainable project structure
+
+---
+
+✨ Features
+
+- 🌙 Dark / Light Mode (persisted via localStorage)
+- 📊 Interactive Charts (Chart.js)
+- 📱 Responsive Layout (mobile-friendly sidebar)
+- 🧩 Reusable Components
+- ⚡ Smooth UI Animations
+- 🔄 Mock API Integration
+- 🧱 Structured SCSS Architecture
+
+---
+
+🛠 Tech Stack
+
+- Frontend: React (Vite)
+- Styling: SCSS (Sass)
+- Charts: Chart.js
+- State Handling: Local component state + utilities
+- Build Tool: Vite
+
+---
+
+📂 Project Structure
+
+src/
+├── components/   # Reusable UI components
+├── pages/        # Page-level views
+├── styles/       # SCSS architecture (variables, layout, components)
+├── utils/        # Utility logic (theme handling, helpers)
+├── api/          # Mock data services
+
+---
+
+⚙️ Installation & Setup
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+---
+
+🎯 Key Implementation Details
+
+🔹 SCSS Architecture
+
+- Modular structure inspired by the 7-1 pattern
+- Separation of concerns (layout, components, utilities)
+- Use of variables, mixins, and reusable styles
+
+🔹 Theme System
+
+- Uses CSS variables for dynamic theming
+- Persisted via "localStorage"
+- Toggleable at runtime
+
+🔹 Component Design
+
+- Fully reusable and scalable components
+- Clear naming conventions for maintainability
+
+---
+
+📸 Preview
+
+«Add screenshots here (highly recommended for GitHub visibility)»
+
+---
+
+🧠 Why This Project Matters
+
+This project reflects real-world frontend engineering practices:
+
+- Scalable CSS architecture
+- Clean code organization
+- UI/UX consistency
+- Maintainable component design
+
+---
+
+🚀 Future Improvements
+
+- Authentication system (JWT / Firebase)
+- Real backend API integration
+- TypeScript migration
+- State management (Redux / Zustand)
+- Deployment (Vercel / Netlify)
+
+---
+
+👨‍💻 Author
+
+Brandon De Armas
+
+---
+
