@@ -238,26 +238,7 @@ A simple browser-based slot machine made with **HTML, CSS, and JavaScript**.
 1. Download the project files.
 2. Open `Slot machine html.html` in any web browser.
 3. Click **Spin** to play.
-4. Click **Reset** to restart the game.
-
-### Upload to GitHub
-1. Create a new repository on GitHub.
-2. Upload both files:
-   - `Slot machine html.html`
-   - `README.md`
-3. Commit the files.
-
-### Enable GitHub Pages
-To make it playable online:
-1. Open your GitHub repository.
-2. Go to **Settings**.
-3. Click **Pages**.
-4. Under **Build and deployment**, choose:
-   - **Source:** Deploy from a branch
-   - **Branch:** `main`
-   - **Folder:** `/root`
-5. Save the settings.
-6. GitHub will give you a public website link for the slot machine.
+4. Click **Reset** to restart the game
 
 ## Game Rules
 - You start with **100 credits**
@@ -288,9 +269,9 @@ You can use and modify this
 project freely.
 
 new update for fun
-# Solitaire RNG Game (C++)
+# Solitaire RNG 
 
-A GitHub-friendly C++ console project for a solitaire-themed random number generator card game.
+C++ console project for a solitaire-themed random number generator card game.
 
 ## Project Structure
 
@@ -772,3 +753,147 @@ Brandon De Armas
 
 ---
 
+# Scala Functional Data Pipeline
+
+Scala project that demonstrates a **functional data pipeline** using immutable data models, pure transformation stages, and explicit error handling with `Either`.
+
+## What this project does
+
+This pipeline reads employee data from a CSV file, validates and transforms each row into typed Scala models, aggregates the valid data by department, and writes the final results to JSON files.
+
+### Pipeline stages
+1. **Read** CSV input from `data/input/employees.csv`
+2. **Decode** rows into raw immutable records
+3. **Validate** fields with explicit functional error handling
+4. **Transform** valid rows into typed domain models
+5. **Summarize** by department
+6. **Write** report and validation errors to JSON output files
+
+## Why this is a good Scala portfolio project
+
+It shows:
+- immutable case classes
+- pure data transformation functions
+- functional error handling with `Either`
+- separation of concerns across files
+- typed domain modeling
+- aggregation and reporting logic
+- GitHub-ready project structure
+
+## Project structure
+
+```text
+scala-functional-data-pipeline/
+├── build.sbt
+├── README.md
+├── data/
+│   ├── input/
+│   │   └── employees.csv
+│   └── output/
+└── src/
+    └── main/
+        └── scala/
+            └── com/
+                └── example/
+                    └── pipeline/
+                        ├── Csv.scala
+                        ├── FileIO.scala
+                        ├── JsonWriter.scala
+                        ├── Main.scala
+                        ├── Models.scala
+                        └── Pipeline.scala
+```
+
+## Requirements
+
+- Java 11 or newer
+- sbt 1.10+
+- Scala 2.13
+
+## How to run
+
+From the project root:
+
+```bash
+sbt run
+```
+
+That uses the default paths:
+- input: `data/input/employees.csv`
+- report output: `data/output/report.json`
+- error output: `data/output/errors.json`
+
+## Run with custom file paths
+
+```bash
+sbt "run path/to/input.csv path/to/report.json path/to/errors.json"
+```
+
+## Example input
+
+```csv
+id,name,department,salary,active
+1,Alice Johnson,Engineering,98000,true
+2,Bob Smith,Engineering,105500,true
+3,Carla Gomez,HR,72000,true
+```
+
+## Example output summary
+
+After running, the project writes a report like this:
+
+```json
+{
+  "processed": 10,
+  "valid": 7,
+  "invalid": 3,
+  "summaries": [
+    {
+      "department": "Engineering",
+      "totalEmployees": 2,
+      "activeEmployees": 2,
+      "averageSalary": 101750.00,
+      "totalSalary": 203500.00
+    }
+  ]
+}
+```
+
+## Files explained
+
+### `Models.scala`
+Defines immutable domain models and error models.
+
+### `Csv.scala`
+Contains a small CSV parser that supports quoted values.
+
+### `Pipeline.scala`
+Contains the pure pipeline stages:
+- decode
+- validate
+- summarize
+- build report
+
+### `JsonWriter.scala`
+Converts reports and errors into JSON strings.
+
+### `FileIO.scala`
+Handles reading and writing files.
+
+### `Main.scala`
+Application entry point that wires the stages together.
+
+## How to customize it
+
+You can extend this project by adding:
+- filtering by department
+- salary band analysis
+- JSON input support
+- streaming with FS2
+- database output
+- Cats Effect for effect management
+- automated tests with ScalaTest or MUnit
+
+## License
+
+You can use this project as a portfolio piece, learning resource, or starting template for a larger Scala backend project.
