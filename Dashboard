@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pro Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+/* ===== THEME VARIABLES ===== */
+:root {
+  --bg: #f9fafb;
+  --text: #111827;
+  --card: #ffffff;
+  --primary: #4f46e5;
+}
+
+[data-theme="dark"] {
+  --bg: #111827;
+  --text: #f9fafb;
+  --card: #1f2937;
+}
+
+/* ===== GLOBAL ===== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: 0.3s;
+}
+
+/* ===== LAYOUT ===== */
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  position: fixed;
+  background: #1f2937;
+  color: white;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+}
+
+.sidebar li {
+  list-style: none;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.header {
+  margin-left: 240px;
+  padding: 15px;
+  background: var(--card);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard {
+  margin-left: 240px;
+  padding: 20px;
+}
+
+/* ===== CARDS ===== */
+.cards {
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 12px;
+  flex: 1;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* ===== GRID ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* ===== BUTTON ===== */
+button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: var(--primary);
+  color: white;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 70px;
+  }
+  .header, .dashboard {
+    margin-left: 70px;
+  }
+  .cards {
+    flex-direction: column;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <h2>ProDash</h2>
+  <ul>
+    <li>Dashboard</li>
+    <li>Analytics</li>
+    <li>Users</li>
+    <li>Settings</li>
+  </ul>
+</div>
+
+<!-- HEADER -->
+<div class="header">
+  <h2>Dashboard</h2>
+  <button onclick="toggleTheme()">Toggle Theme</button>
+</div>
+
+<!-- MAIN -->
+<div class="dashboard">
+
+  <!-- STATS -->
+  <div class="cards">
+    <div class="card">Users: 1,024</div>
+    <div class="card">Revenue: $12,300</div>
+    <div class="card">Growth: 12%</div>
+  </div>
+
+  <!-- GRID -->
+  <div class="grid">
+    <div class="card">
+      <canvas id="chart"></canvas>
+    </div>
+
+    <div class="card">
+      <h3>Tasks</h3>
+      <ul>
+        <li>Finish UI</li>
+        <li>Fix bugs</li>
+        <li>Deploy app</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<script>
+/* ===== THEME TOGGLE ===== */
+function toggleTheme() {
+  const current = document.documentElement.getAttribute("data-theme");
+
+  if (current === "dark") {
+    document.documentElement.removeAttribute("data-theme");
+    localStorage.setItem("theme", "light");
+  } else {
+    document.documentElement.setAttribute("data-theme", "dark");
+    localStorage.setItem("theme", "dark");
+  }
+}
+
+// load saved theme
+if (localStorage.getItem("theme") === "dark") {
+  document.documentElement.setAttribute("data-theme", "dark");
+}
+
+/* ===== CHART ===== */
+const ctx = document.getElementById('chart');
+
+new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr'],
+    datasets: [{
+      label: 'Revenue',
+      data: [1200, 1900, 3000, 2500],
+      borderWidth: 2
+    }]
+  }
+});
+</script>
+
+</body>
+</html>
