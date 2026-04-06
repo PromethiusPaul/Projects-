@@ -14,6 +14,7 @@ I’m an aspiring Software Developer with a background in operations management 
 
 🛠️ Technical Skills
 
+
 - Languages: Python, JavaScript, C++, .NET
 - Web: HTML, CSS
 - Tools: Git, GitHub, VS Code
@@ -1075,5 +1076,203 @@ Software Engineer | Backend Developer
 
 This project is designed to demonstrate backend engineering skills at a professional level.
 If you're a recruiter or hiring manager, this repository reflects my ability to build scalable, maintainable backend systems.
+
+---
+
+💬 Real-Time Chat Backend API (Production-Ready)
+
+🚀 Overview
+
+A scalable real-time messaging backend similar to Discord/Slack.
+Built to demonstrate WebSockets, event-driven architecture, and backend scalability.
+
+This project showcases how modern chat systems handle real-time communication, persistence, and horizontal scaling.
+
+---
+
+🧰 Tech Stack
+
+- Node.js + Express – Backend framework
+- Socket.IO – Real-time communication (WebSockets)
+- PostgreSQL – Persistent message storage
+- Redis (Pub/Sub ready) – Scalable messaging layer
+
+---
+
+⚙️ Core Features
+
+💬 Real-Time Messaging
+
+- Instant message delivery via WebSockets
+- Low-latency communication
+- Event-based message broadcasting
+
+🧑‍🤝‍🧑 Room-Based Chat
+
+- Users join specific rooms/channels
+- Scoped message delivery per room
+- Efficient socket grouping
+
+🗄️ Message Persistence
+
+- All messages stored in PostgreSQL
+- Enables chat history and retrieval
+- Structured database schema
+
+⚡ Event-Driven Architecture
+
+- Decoupled event handlers
+- Scalable system design
+- Easy to extend with new features
+
+---
+
+🏗️ Architecture Overview
+
+Client (Web App)
+      ↓
+WebSocket Connection (Socket.IO)
+      ↓
+Event Handlers (Socket Layer)
+      ↓
+Service Layer (Business Logic)
+      ↓
+Repository Layer (DB Queries)
+      ↓
+PostgreSQL Database
+
+---
+
+📂 Project Structure
+
+src/
+ ├── config/           # WebSocket + DB + Redis setup
+ ├── socket_handlers/  # Real-time event handlers
+ ├── services/         # Business logic
+ ├── repositories/     # Database layer
+ ├── utils/            # Helpers
+ └── server_entry_point.js
+
+---
+
+▶️ Getting Started
+
+1. Clone Repository
+
+git clone https://github.com/YOUR_USERNAME/realtime-chat-backend.git
+cd realtime-chat-backend
+
+2. Install Dependencies
+
+npm install
+
+3. Setup Environment Variables
+
+cp .env_example_environment_variables .env
+
+Update ".env":
+
+PORT=5000
+POSTGRES_URI=postgres://user:pass@localhost:5432/chatdb
+REDIS_URL=redis://localhost:6379
+
+4. Run Server
+
+npm run dev
+
+---
+
+📡 WebSocket Events
+
+🔗 Join Room
+
+Event: "join_room_event"
+Payload:
+
+{
+  "roomId": "general"
+}
+
+---
+
+📤 Send Message
+
+Event: "send_message_event"
+Payload:
+
+{
+  "userId": 1,
+  "roomId": "general",
+  "message": "Hello world"
+}
+
+---
+
+📥 Receive Message
+
+Event: "receive_message_event"
+Triggered when a message is broadcast to a room
+
+---
+
+🧪 Example Flow
+
+1. Client connects via WebSocket
+2. User joins a room
+3. User sends message
+4. Server processes message
+5. Message saved to database
+6. Message broadcast to room
+
+---
+
+🧠 What This Project Demonstrates
+
+✅ Real-time backend engineering
+✅ WebSocket communication
+✅ Event-driven system design
+✅ Scalable architecture patterns
+✅ Clean separation of concerns
+
+---
+
+💡 Why This Project Stands Out
+
+Most backend portfolios:
+
+- ❌ Only REST APIs
+- ❌ No real-time systems
+- ❌ No scaling considerations
+
+This project:
+
+- ✅ Implements WebSockets
+- ✅ Uses event-driven architecture
+- ✅ Prepares for horizontal scaling (Redis)
+- ✅ Mimics real-world chat systems
+
+---
+
+🚧 Future Improvements
+
+- JWT authentication for socket connections
+- Typing indicators
+- Read receipts
+- Message history pagination
+- Redis adapter for multi-instance scaling
+- Notifications system
+
+---
+
+👨‍💻 Author
+
+Brandon De Armas
+Software Engineer | Backend Developer
+
+---
+
+⭐ Final Note
+
+This project demonstrates the ability to design and build real-time distributed systems, a skill set highly valued in modern backend engineering roles.
 
 ---
