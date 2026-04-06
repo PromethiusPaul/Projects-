@@ -899,6 +899,8 @@ You can extend this project by adding:
 
 You can use this project as a portfolio piece, learning resource, or starting template for a larger Scala backend project.
 
+---
+
 
 🚀 Scalable Job Board Backend API (Production-Ready)
 
