@@ -1276,3 +1276,180 @@ Software Engineer | Backend Developer
 This project demonstrates the ability to design and build real-time distributed systems, a skill set highly valued in modern backend engineering roles.
 
 ---
+
+📦 Distributed File Storage Backend API (Production-Ready)
+
+🚀 Overview
+
+A scalable backend system similar to Google Drive or Dropbox that supports file uploads, storage, and retrieval using cloud infrastructure.
+
+This project demonstrates how modern backend systems handle large file storage, cloud integration, and scalable architecture.
+
+---
+
+🧰 Tech Stack
+
+- Node.js + Express – Backend framework
+- AWS S3 – Cloud file storage
+- PostgreSQL – Metadata database
+- Multer – File upload handling
+- Redis (optional) – Caching layer
+
+---
+
+⚙️ Core Features
+
+📤 File Upload System
+
+- Upload files via REST API
+- Handles multipart form data using Multer
+- Memory-based upload pipeline
+
+☁️ Cloud Storage Integration
+
+- Files stored securely in AWS S3
+- Scalable object storage system
+- Highly available and fault tolerant
+
+🗄️ Metadata Management
+
+- Stores file URLs in PostgreSQL
+- Enables tracking and retrieval
+- Structured relational schema
+
+🔐 Secure File Access (Planned)
+
+- Signed URL support (future)
+- Controlled access to private files
+
+---
+
+🏗️ Architecture Overview
+
+Client (Web/App)
+      ↓
+REST API (Express)
+      ↓
+Service Layer
+      ↓
+AWS S3 (File Storage) + PostgreSQL (Metadata)
+
+---
+
+📂 Project Structure
+
+src/
+ ├── config/         # AWS + DB configs
+ ├── controllers/    # Request handling
+ ├── services/       # Business logic
+ ├── repositories/   # Database layer
+ ├── middleware/     # File upload handling
+ ├── routes/         # API endpoints
+ └── server_entry_point.js
+
+---
+
+▶️ Getting Started
+
+1. Clone Repository
+
+git clone https://github.com/YOUR_USERNAME/file-storage-backend.git
+cd file-storage-backend
+
+2. Install Dependencies
+
+npm install
+
+3. Setup Environment Variables
+
+cp .env_example_environment_variables .env
+
+Update ".env":
+
+PORT=5000
+AWS_ACCESS_KEY=your_key
+AWS_SECRET_KEY=your_secret
+S3_BUCKET=your_bucket
+POSTGRES_URI=postgres://user:pass@localhost:5432/filedb
+
+4. Run Server
+
+npm run dev
+
+---
+
+📡 API Endpoints
+
+📤 Upload File
+
+POST "/api/files/upload"
+
+Form Data:
+
+{
+  "file": "binary file"
+}
+
+---
+
+🧪 Example Flow
+
+1. User uploads file
+2. Server receives file via Multer
+3. File sent to AWS S3
+4. S3 returns file URL
+5. URL stored in PostgreSQL
+6. Response returned to client
+
+---
+
+🧠 What This Project Demonstrates
+
+✅ Cloud storage integration (AWS S3)
+✅ Handling large file uploads
+✅ Backend system architecture
+✅ Database + external service coordination
+✅ Scalable backend design
+
+---
+
+💡 Why This Project Stands Out
+
+Most portfolios:
+
+- ❌ Only basic APIs
+- ❌ No cloud integration
+- ❌ No real-world storage handling
+
+This project:
+
+- ✅ Uses AWS S3 (industry standard)
+- ✅ Demonstrates file handling at scale
+- ✅ Shows system design thinking
+- ✅ Integrates multiple backend components
+
+---
+
+🚧 Future Improvements
+
+- Signed URLs for secure downloads
+- File versioning system
+- Chunked uploads for large files
+- CDN integration (CloudFront)
+- Role-based file access control
+- Background processing (queues)
+
+---
+
+👨‍💻 Author
+
+Brandon De Armas
+Software Engineer | Backend Developer
+
+---
+
+⭐ Final Note
+
+This project demonstrates the ability to build cloud-integrated backend systems, a critical skill for modern backend and full-stack engineering roles.
+
+---
